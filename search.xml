@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>hashCode()方法</title>
+      <link href="/2020/01/17/hashCode-%E6%96%B9%E6%B3%95/"/>
+      <url>/2020/01/17/hashCode-%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>#hashCode()方法#<br>返回一个十进制的整数，在Object类中定义的hashCode方法由操作系统给出。是一个native方法：</p><p> “A native method is a Java method whose implementation is provided by non-java code.”</p><p>Java中的hashCode方法就是根据一定的规则将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作为散列值。</p><h2 id="String类中的hashCode"><a href="#String类中的hashCode" class="headerlink" title="String类中的hashCode():"></a>String类中的hashCode():</h2><pre><code>javapublic int hashCode() {      int h = hash;    if (h == 0 &amp;&amp; value.length &gt; 0) {            char val[] = value;        for (int i = 0; i &lt; value.length; i++) {            h = 31 * h + val[i];        }        hash = h;     }    return h;}</code></pre><p>重写的hashCode()使之与String对象中的value[]数组对应，保证了相同的两个String对象的hashCode相同。</p><h2 id="hashCode-的作用："><a href="#hashCode-的作用：" class="headerlink" title="hashCode()的作用："></a>hashCode()的作用：</h2><p>这就要说道如何辨别两个对象是否相等了，如果我们只使用equals()方法，那么假如基于散列的集合中（如HashSet，HashMap，LinkedHashMap）放了成千上万个对象，那么只是用equals()方法来判断对象是否相等的效率太低了。这时我们引入hashCode()。</p><p>将hashCode()得到的hash值进行一定的算法（hash扰动）得到的能可运用与对应集合类的hash值进行比较，就可以较为迅速的判断两个对象是否不相等，但不能完全肯定两个对象相等，这时我们再运用equals方法来判断两个对象是否相等，提高效率。</p><h3 id="hash扰动："><a href="#hash扰动：" class="headerlink" title="hash扰动："></a>hash扰动：</h3><pre><code>static final int hash(Object key) {        int h;        return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);    }</code></pre><hr><h3 id="HashMap中的put-方法："><a href="#HashMap中的put-方法：" class="headerlink" title="HashMap中的put()方法："></a>HashMap中的put()方法：</h3><pre><code>public V put(K key, V value) {        return putVal(hash(key), key, value, false, true);    }final V putVal(int hash, K key, V value, boolean onlyIfAbsent,                   boolean evict) {        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;        if ((tab = table) == null || (n = tab.length) == 0)            n = (tab = resize()).length;        if ((p = tab[i = (n - 1) &amp; hash]) == null)            tab[i] = newNode(hash, key, value, null);        else {            Node&lt;K,V&gt; e; K k;            if (p.hash == hash &amp;&amp;                ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))                e = p;            else if (p instanceof TreeNode)                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);            else {                for (int binCount = 0; ; ++binCount) {                    if ((e = p.next) == null) {                        p.next = newNode(hash, key, value, null);                        if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st                            treeifyBin(tab, hash);                        break;                    }                    if (e.hash == hash &amp;&amp;                        ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))                        break;                    p = e;                }            }            if (e != null) { // existing mapping for key                V oldValue = e.value;                if (!onlyIfAbsent || oldValue == null)                    e.value = value;                afterNodeAccess(e);                return oldValue;            }        }        ++modCount;        if (++size &gt; threshold)            resize();        afterNodeInsertion(evict);        return null;    }</code></pre><p>不用看这么多代码，我们只需要注意到这个方法中的第12到第15行，就是进行了hash值的判断和对象的equals()来判断两个对象是否相等。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>hashCode计算出来的hash值做为一种散列值，就是为了在基于哈希表这种数据结构（数组加链表或数组加红黑树）的集合类中提高查找效率来设计的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+          <category> javaSE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javaSE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的第一篇文章</title>
+      <link href="/2020/01/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2020/01/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><p>这个软件的语法我还在熟悉当中，在这里我就随便写点什么！！</p><p>gogogo</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 熟悉软件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2020/01/17/hello-world/"/>
+      <url>/2020/01/17/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+    
+    
+    <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<p>大家好，我是心尤。欢迎来到我的个人技术博客。</p><p>本人是一个大四即将毕业的单身狗，正在自学java，欢迎常来</p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>读书</title>
+      <link href="/reading/index.html"/>
+      <url>/reading/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+  
+</search>

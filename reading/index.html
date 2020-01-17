@@ -7,16 +7,13 @@
 
     
 
-    <title>hashCode()方法 | 心尤的学习小屋</title>
+    <title>读书 | 心尤的学习小屋</title>
     <meta name="author" content="xin you">
-    
-    <meta name="description" content="#hashCode()方法#返回一个十进制的整数，在Object类中定义的hashCode方法由操作系统给出。是一个native方法：
- “A native method is a Java method whose implementation is provided by non-java co">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="hashCode()方法"/>
+    <meta property="og:title" content="读书"/>
     <meta property="og:site_name" content="Hi welcome to my blogs"/>
 
     
@@ -217,146 +214,106 @@
 
 
     <main>
-        <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
-    <div class="nav-wrapper brown darken-1">
-        <span class="breadcrumb">当前位置（分类目录）</span>
-        
-            
-    
-    
-    <a class="breadcrumb" href="/categories/技术/">技术</a><a class="breadcrumb" href="/categories/技术/javaSE/">javaSE</a>
-
-
         
 
-        
-    </div>
-</nav>
-
-<article>
-    <div class="card">
-        <div class="card-content">
-            
-
-            <div class="article-title">
-                
+<div class="container main-container">
     
-        <h1>hashCode()方法</h1>
-    
-
-
+        <div class="">
+            <div class="row">
+                <ul class="tabs ">
+                    
+                        
+                    
+                        
+                        <li class="tab col s4 ">
+                            <a class="light-green-text " href="#reading">在读(1)</a>
+                        </li>
+                        
+                    
+                        
+                        <li class="tab col s4 ">
+                            <a class="light-green-text " href="#wanted">想读(1)</a>
+                        </li>
+                        
+                    
+                </ul>
             </div>
-            <time class="light-green-link-context" datetime="2020-01-16T17:20:37.000Z"><a href="/2020/01/17/hashCode-%E6%96%B9%E6%B3%95/">2020-01-17</a></time>
-
-            <span id="busuanzi_container_page_pv" class="read-times-container">
-    <i class="fa fa-eye"></i>
-    <span id="busuanzi_value_page_pv"></span>
-</span>
 
             
-    <div class="tags-row">
-        
-            <a href="/tags/javaSE/" class="chip light-green">javaSE</a>
-        
-    </div>
+                <div id="readed" class="row" style="margin-top: 20px;">
+                    
+                    
+                </div>
+            
+                <div id="reading" class="row" style="margin-top: 20px;">
+                    
+                    
+                        <div class="book-item col s12 m6">
+                            <div class="card small hoverable">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="card-cover-image activator" src="https://img9.doubanio.com/view/subject/l/public/s27243455.jpg">
+                                </div>
+                                <div class="card-content light-green-link-context">
+                                    <span class="card-title truncate activator grey-text text-darken-4">Java编程思想
+                                    </span>
+                                    <p>评分: 9
+                                        <a class="external-link right" href="https://book.douban.com/subject/2130190/" target="_blank">
 
+                                            <i class="fa fa-external-link"></i>
+                                        </a>
+                                    </p>
+                                </div>
 
-            <div class="toc light-green-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#String类中的hashCode"><span class="section table-of-contents-text">String类中的hashCode():</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#hashCode-的作用："><span class="section table-of-contents-text">hashCode()的作用：</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#hash扰动："><span class="section table-of-contents-text">hash扰动：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#HashMap中的put-方法："><span class="section table-of-contents-text">HashMap中的put()方法：</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#总结"><span class="section table-of-contents-text">总结</span></a></li></ol>
-</div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">简评
+                                        <i class="fa fa-times-circle-o right"></i>
+                                    </span>
 
+                                    <p>一门java知识点覆盖全面的百科全书</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div id="wanted" class="row" style="margin-top: 20px;">
+                    
+                    
+                        <div class="book-item col s12 m6">
+                            <div class="card small hoverable">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="card-cover-image activator" src="https://img3.doubanio.com/view/subject/l/public/s28607882.jpg">
+                                </div>
+                                <div class="card-content light-green-link-context">
+                                    <span class="card-title truncate activator grey-text text-darken-4">Spring Boot实战
+                                    </span>
+                                    <p>评分: 9
+                                        <a class="external-link right" href="https://book.douban.com/subject/26767354/" target="_blank">
 
-            <div class="entry light-green-link-context">
-                <p>#hashCode()方法#<br>返回一个十进制的整数，在Object类中定义的hashCode方法由操作系统给出。是一个native方法：</p>
-<p> “A native method is a Java method whose implementation is provided by non-java code.”</p>
-<p>Java中的hashCode方法就是根据一定的规则将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作为散列值。</p>
-<h2 id="String类中的hashCode"><a href="#String类中的hashCode" class="headerlink" title="String类中的hashCode():"></a>String类中的hashCode():</h2><pre><code>java
-public int hashCode() {
-      int h = hash;
-    if (h == 0 &amp;&amp; value.length &gt; 0) {    
-        char val[] = value;
-        for (int i = 0; i &lt; value.length; i++) {
-            h = 31 * h + val[i];
-        }
-        hash = h;
-     }
-    return h;
-}</code></pre><p>重写的hashCode()使之与String对象中的value[]数组对应，保证了相同的两个String对象的hashCode相同。</p>
-<h2 id="hashCode-的作用："><a href="#hashCode-的作用：" class="headerlink" title="hashCode()的作用："></a>hashCode()的作用：</h2><p>这就要说道如何辨别两个对象是否相等了，如果我们只使用equals()方法，那么假如基于散列的集合中（如HashSet，HashMap，LinkedHashMap）放了成千上万个对象，那么只是用equals()方法来判断对象是否相等的效率太低了。这时我们引入hashCode()。</p>
-<p>将hashCode()得到的hash值进行一定的算法（hash扰动）得到的能可运用与对应集合类的hash值进行比较，就可以较为迅速的判断两个对象是否不相等，但不能完全肯定两个对象相等，这时我们再运用equals方法来判断两个对象是否相等，提高效率。</p>
-<h3 id="hash扰动："><a href="#hash扰动：" class="headerlink" title="hash扰动："></a>hash扰动：</h3><pre><code>static final int hash(Object key) {
-        int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
-    }</code></pre><hr>
-<h3 id="HashMap中的put-方法："><a href="#HashMap中的put-方法：" class="headerlink" title="HashMap中的put()方法："></a>HashMap中的put()方法：</h3><pre><code>public V put(K key, V value) {
-        return putVal(hash(key), key, value, false, true);
-    }
-final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
-                   boolean evict) {
-        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;
-        if ((tab = table) == null || (n = tab.length) == 0)
-            n = (tab = resize()).length;
-        if ((p = tab[i = (n - 1) &amp; hash]) == null)
-            tab[i] = newNode(hash, key, value, null);
-        else {
-            Node&lt;K,V&gt; e; K k;
-            if (p.hash == hash &amp;&amp;
-                ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))
-                e = p;
-            else if (p instanceof TreeNode)
-                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);
-            else {
-                for (int binCount = 0; ; ++binCount) {
-                    if ((e = p.next) == null) {
-                        p.next = newNode(hash, key, value, null);
-                        if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st
-                            treeifyBin(tab, hash);
-                        break;
-                    }
-                    if (e.hash == hash &amp;&amp;
-                        ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
-                        break;
-                    p = e;
-                }
-            }
-            if (e != null) { // existing mapping for key
-                V oldValue = e.value;
-                if (!onlyIfAbsent || oldValue == null)
-                    e.value = value;
-                afterNodeAccess(e);
-                return oldValue;
-            }
-        }
-        ++modCount;
-        if (++size &gt; threshold)
-            resize();
-        afterNodeInsertion(evict);
-        return null;
-    }</code></pre><p>不用看这么多代码，我们只需要注意到这个方法中的第12到第15行，就是进行了hash值的判断和对象的equals()来判断两个对象是否相等。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>hashCode计算出来的hash值做为一种散列值，就是为了在基于哈希表这种数据结构（数组加链表或数组加红黑树）的集合类中提高查找效率来设计的。</p>
+                                            <i class="fa fa-external-link"></i>
+                                        </a>
+                                    </p>
+                                </div>
 
-                
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">简评
+                                        <i class="fa fa-times-circle-o right"></i>
+                                    </span>
 
+                                    <p>目前java后端领域最火的企业级框架</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            
 
-<p class="light-green-link-context">
-    <a href="/2020/01/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" rel="next" title="我的第一篇文章">
-    下一篇：我的第一篇文章
-  </a>
-</p>
-
-
-            </div>
-			
         </div>
-    </div>
-</article>
+        
 
 
 
-
-
-
+    
 </div>
 
         <div class="fixed-action-btn float-sitemap">
