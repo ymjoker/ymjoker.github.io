@@ -10,8 +10,8 @@
     <title>hashCode()方法 | 心尤的学习小屋</title>
     <meta name="author" content="xin you">
     
-    <meta name="description" content="#hashCode()方法#返回一个十进制的整数，在Object类中定义的hashCode方法由操作系统给出。是一个native方法：
- “A native method is a Java method whose implementation is provided by non-java co">
+    <meta name="description" content="hashCode()方法#返回一个十进制的整数，在Object类中定义的hashCode方法由操作系统给出。是一个native方法：
+ “A native method is a Java method whose implementation is provided by non-java cod">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -263,12 +263,12 @@
 
 
             <div class="toc light-green-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#String类中的hashCode"><span class="section table-of-contents-text">String类中的hashCode():</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#hashCode-的作用："><span class="section table-of-contents-text">hashCode()的作用：</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#hash扰动："><span class="section table-of-contents-text">hash扰动：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#HashMap中的put-方法："><span class="section table-of-contents-text">HashMap中的put()方法：</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#总结"><span class="section table-of-contents-text">总结</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#hashCode-方法"><span class="section table-of-contents-text">hashCode()方法#</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#String类中的hashCode"><span class="section table-of-contents-text">String类中的hashCode():</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#hashCode-的作用："><span class="section table-of-contents-text">hashCode()的作用：</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#hash扰动："><span class="section table-of-contents-text">hash扰动：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#HashMap中的put-方法："><span class="section table-of-contents-text">HashMap中的put()方法：</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#hash值在HashMap中的运用："><span class="section table-of-contents-text">hash值在HashMap中的运用：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#总结"><span class="section table-of-contents-text">总结</span></a></li></ol></li></ol>
 </div>
 
 
             <div class="entry light-green-link-context">
-                <p>#hashCode()方法#<br>返回一个十进制的整数，在Object类中定义的hashCode方法由操作系统给出。是一个native方法：</p>
+                <h1 id="hashCode-方法"><a href="#hashCode-方法" class="headerlink" title="hashCode()方法#"></a>hashCode()方法#</h1><p>返回一个十进制的整数，在Object类中定义的hashCode方法由操作系统给出。是一个native方法：</p>
 <p> “A native method is a Java method whose implementation is provided by non-java code.”</p>
 <p>Java中的hashCode方法就是根据一定的规则将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作为散列值。</p>
 <h2 id="String类中的hashCode"><a href="#String类中的hashCode" class="headerlink" title="String类中的hashCode():"></a>String类中的hashCode():</h2><pre><code>java
@@ -334,7 +334,8 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
             resize();
         afterNodeInsertion(evict);
         return null;
-    }</code></pre><p>不用看这么多代码，我们只需要注意到这个方法中的第12到第15行，就是进行了hash值的判断和对象的equals()来判断两个对象是否相等。<br>##hash值在HashMap中的运用：<br>hash值在HashMap中的运用不仅仅是用来判断两个对象是否不相等，还运用在寻找一个对象在哈希表所对应的哈希桶，也就是这个数组的下标中。</p>
+    }</code></pre><p>不用看这么多代码，我们只需要注意到这个方法中的第12到第15行，就是进行了hash值的判断和对象的equals()来判断两个对象是否相等。</p>
+<h2 id="hash值在HashMap中的运用："><a href="#hash值在HashMap中的运用：" class="headerlink" title="hash值在HashMap中的运用："></a>hash值在HashMap中的运用：</h2><p>hash值在HashMap中的运用不仅仅是用来判断两个对象是否不相等，还运用在寻找一个对象在哈希表所对应的哈希桶，也就是这个数组的下标中。</p>
 <p>在put()方法中的第九行，我们可以注意到他将这个数组的长度减一后与hash值做与运算。因为数组的长度总是二的幂次方，其减一后得到的二进制数除去最高位都是一，做与运算后就可以迅速得到该对象在数组中对应的位置（相当于取余运算）。数组索引的时间复杂度为O(1)，这样查找对应位置的方式可以说是非常迅速了。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>hashCode计算出来的hash值做为一种散列值，就是为了在基于哈希表这种数据结构（数组加链表或数组加红黑树）的集合类中提高查找效率来设计的。</p>
 

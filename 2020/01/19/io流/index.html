@@ -10,10 +10,10 @@
     <title>io流 | 心尤的学习小屋</title>
     <meta name="author" content="xin you">
     
-    <meta name="description" content="#io流输入流：把硬盘中的数据读取到内存中
+    <meta name="description" content="io流输入流：把硬盘中的数据读取到内存中
 输出流：把内存中的数据写入到硬盘中
 可以根据流中的数据是字符还是字节可以分为字符输入输出流（InputStream/OutputStream）和字节输入输出流（Reader/Writer）。
-##字节流###FileOutputStream:把内存中的数据">
+字节流FileOutputStream:把内存中的数据写入到硬盘中">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -265,15 +265,15 @@
 
 
             <div class="toc light-green-link-context hide-on-med-and-down">
-    
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#io流"><span class="section table-of-contents-text">io流</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#字节流"><span class="section table-of-contents-text">字节流</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#FileOutputStream"><span class="section table-of-contents-text">FileOutputStream:</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#FileInputStream"><span class="section table-of-contents-text">FileInputStream:</span></a></li></ol></li></ol></li></ol>
 </div>
 
 
             <div class="entry light-green-link-context">
-                <p>#io流<br>输入流：把硬盘中的数据读取到内存中</p>
+                <h1 id="io流"><a href="#io流" class="headerlink" title="io流"></a>io流</h1><p>输入流：把硬盘中的数据读取到内存中</p>
 <p>输出流：把内存中的数据写入到硬盘中</p>
 <p>可以根据流中的数据是字符还是字节可以分为字符输入输出流（InputStream/OutputStream）和字节输入输出流（Reader/Writer）。</p>
-<p>##字节流<br>###FileOutputStream:<br>把内存中的数据写入到硬盘中的文件中。</p>
+<h2 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h2><h3 id="FileOutputStream"><a href="#FileOutputStream" class="headerlink" title="FileOutputStream:"></a>FileOutputStream:</h3><p>把内存中的数据写入到硬盘中的文件中。</p>
 <p>构造方法：</p>
 <ul>
 <li>FileOutputStream(File file)</li>
@@ -299,7 +299,7 @@
     }
 }</code></pre><p>结果：烤紻E</p>
 <p>多个字节时操作系统先判断是否为utf-8，再按默认编码表(GBK)来读取数据，最后还剩一个字符时用ASCII码来读取。</p>
-<p>###FileInputStream:<br>把硬盘文件中的数据读取到内存中。</p>
+<h3 id="FileInputStream"><a href="#FileInputStream" class="headerlink" title="FileInputStream:"></a>FileInputStream:</h3><p>把硬盘文件中的数据读取到内存中。</p>
 <p>构造方法：</p>
 <ul>
 <li>FileInputStream(File file)</li>
