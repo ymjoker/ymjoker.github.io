@@ -99,22 +99,22 @@
     
     
     <entry>
-      <title>读书</title>
-      <link href="/reading/index.html"/>
-      <url>/reading/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>大家好，我是心尤。欢迎来到我的个人技术博客。</p><p>本人是一个大四即将毕业的单身狗，正在自学java，欢迎常来</p>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>读书</title>
+      <link href="/reading/index.html"/>
+      <url>/reading/index.html</url>
       
-        <content type="html"><![CDATA[<p>大家好，我是心尤。欢迎来到我的个人技术博客。</p><p>本人是一个大四即将毕业的单身狗，正在自学java，欢迎常来</p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
