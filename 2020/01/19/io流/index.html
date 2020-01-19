@@ -7,13 +7,18 @@
 
     
 
-    <title>熟悉软件 | 心尤的学习小屋</title>
+    <title>io流 | 心尤的学习小屋</title>
     <meta name="author" content="xin you">
+    
+    <meta name="description" content="#io流输入流：把硬盘中的数据读取到内存中
+输出流：把内存中的数据写入到硬盘中
+可以根据流中的数据是字符还是字节可以分为字符输入输出流（InputStream/OutputStream）和字节输入输出流（Reader/Writer）。
+##字节流###FileOutputStream:把内存中的数据">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="io流"/>
     <meta property="og:site_name" content="Hi welcome to my blogs"/>
 
     
@@ -215,30 +220,119 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper brown darken-1">
-        <span class="breadcrumb">当前位置（标签）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/技术/">技术</a><a class="breadcrumb" href="/categories/技术/javaSE/">javaSE</a>
+
 
         
-            <a class="breadcrumb" href="/tags/熟悉软件/">熟悉软件</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>io流</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="light-green-link-context" datetime="2020-01-19T10:16:56.000Z"><a href="/2020/01/19/io%E6%B5%81/">2020-01-19</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
-            <a href="/2020/01/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="collection-item grey-text text-darken-1">
-                <time datetime="2020-01-16T17:18:58.000Z">2020-01-17</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                我的第一篇文章
-            </a>
+            <a href="/tags/javaSE/" class="chip light-green">javaSE</a>
         
     </div>
+
+
+            <div class="toc light-green-link-context hide-on-med-and-down">
+    
+</div>
+
+
+            <div class="entry light-green-link-context">
+                <p>#io流<br>输入流：把硬盘中的数据读取到内存中</p>
+<p>输出流：把内存中的数据写入到硬盘中</p>
+<p>可以根据流中的数据是字符还是字节可以分为字符输入输出流（InputStream/OutputStream）和字节输入输出流（Reader/Writer）。</p>
+<p>##字节流<br>###FileOutputStream:<br>把内存中的数据写入到硬盘中的文件中。</p>
+<p>构造方法：</p>
+<ul>
+<li>FileOutputStream(File file)</li>
+<li>FileOutputStream(String name)</li>
+<li>FileOutputStream(String name, boolean append)</li>
+</ul>
+<p>如何使用：</p>
+<pre><code>public class OutputStreamDemo {
+    public static void main(String[] args) throws IOException {
+        FileOutputStream fos = new FileOutputStream(&quot;src\\test_io\\test.txt&quot;);
+        fos.write(97);
+        fos.close();
+    }
+}</code></pre><p>注意：<br>字节输入输出流只能操作byte数据类型的数据，如果是int类型的数据，就会转换为byte类型（通常是非常暴力的截取尾部8位，截取成负数就显示？号，正数就按ASCII码显示）。<br>代码强制转换的结果：</p>
+<p><img src="https://github.com/ymjoker/MarkdownPhoto/blob/master/clipboard.png" alt="avatar"></p>
+<p>当我们写入300时，转换为byte类型的数据就是44，最后打开显示为’,’。<br>多个字节的写入：</p>
+<pre><code>public class OutputStreamDemo {
+    public static void main(String[] args) throws IOException {
+        FileOutputStream fos = new FileOutputStream(&quot;src\\test_io\\test.txt&quot;);
+        byte[] bytes = {-65, -66, -67, 68, 69};
+        fos.write(bytes);
+        fos.close();
+    }
+}</code></pre><p>结果：烤紻E</p>
+<p>多个字节时操作系统先判断是否为utf-8，再按默认编码表(GBK)来读取数据，最后还剩一个字符时用ASCII码来读取。</p>
+<p>###FileInputStream:<br>把硬盘文件中的数据读取到内存中。</p>
+<p>构造方法：</p>
+<ul>
+<li>FileInputStream(File file)</li>
+<li>FileInputStream(String name)</li>
+</ul>
+<p>如何使用：</p>
+<pre><code>public class InputStreamDemo {
+    public static void main(String[] args) throws IOException {
+        FileInputStream fis = new FileInputStream(&quot;src\\test_io\\test.txt&quot;);
+        int result = fis.read();
+        System.out.println(result);
+    }
+}</code></pre><p>注意：<br>每次读取字节操作，即调用.read()方法时，都会使读取指针指向下一个字节。</p>
+
+                
+
+
+<p class="light-green-link-context">
+    <a href="/2020/01/17/hashCode-%E6%96%B9%E6%B3%95/" rel="next" title="hashCode()方法">
+    下一篇：hashCode()方法
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>
